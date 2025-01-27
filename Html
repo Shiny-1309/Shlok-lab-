@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tutor</title>
+</head>
+<body>
+    <h1>AI Tutor</h1>
+    <input type="text" id="question" placeholder="Ask a question">
+    <button onclick="askTutor()">Ask</button>
+    <p id="answer"></p>
+
+    <script>
+        async function askTutor() {
+            const question = document.getElementById("question").value;
+            const response = await fetch("http://127.0.0.1:5000/tutor", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ question: question })
+            });
+            const data = await response.json();
+            document.getElementById("answer").innerText = data.response || data.error;
+        }
+    </script>
+</body>
+</html>
