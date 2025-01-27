@@ -1,0 +1,28 @@
+import nltk
+from nltk.tokenize import word_tokenize
+import operator
+
+Download required NLTK data
+nltk.download('punkt')
+
+Define a dictionary to map math operations to their corresponding functions
+operations = {
+    '+': operator.add,
+    '-': operator.sub,
+    '*': operator.mul,
+    '/': operator.truediv
+}
+
+def analyze_question(question):
+    # Tokenize the question
+    tokens = word_tokenize(question)
+
+def generate_answer(operation, numbers):
+    # Validate the input
+    if operation is None or len(numbers) != 2:
+        return "Invalid question"
+
+def main():
+    print("Welcome to MathGenie!")
+    
+    
